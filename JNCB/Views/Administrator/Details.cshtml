@@ -1,0 +1,42 @@
+﻿@model Account
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Customers Personal Information</h1>
+
+<div>
+    <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">First Name:<h4>@ViewBag.firstName</h4></li>
+            <li class="list-group-item">Last Name: <h4>@ViewBag.lastName</h4></li>
+            <li class="list-group-item">Email/UserName:<h4>@ViewBag.Email</h4></li>
+            <li class="list-group-item">Address:<h4>@ViewBag.Address</h4></li>
+            <li class="list-group-item">UserID:<h4>@ViewBag.ID</h4></li>
+        </ul>
+    </div>
+
+    <hr />
+    <h2>Customer's Account Details</h2>
+    <div class="card mb-3">
+        <div class=" card-header">
+            <span>Account Number:</span><h5>@Html.DisplayFor(model => model.accountNumber)</h5>
+        </div>
+        <div class="card-body">
+            <span>Balance:</span>  <h5 class="card-title"> @Html.DisplayFor(model => model.balance)</h5>
+            <span>Available:</span>  <h5 class="card-title"> @Html.DisplayFor(model => model.availableAmount)</h5>
+            <span>Card Number:</span> <h5 class="card-title"> @Html.DisplayFor(model => model.cardNum)</h5>
+            <span>Account Type:</span> <h5 class="card-title"> @Html.DisplayFor(model => model.type)</h5>
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-primary" asp-controller="Administrator" asp-action="Delete" asp-route-id="@Model.userID">Delete Customer</a>
+            <a asp-controller="Administrator" asp-action="EditP" class="btn btn-primary" asp-route-id="@Model.userID">Edit Customer</a>
+        </div>
+    </div>
+
+</div>
+<div>
+
+    <a asp-action="ViewAll">Back to List</a>
+</div>

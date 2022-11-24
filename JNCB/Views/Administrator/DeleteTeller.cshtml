@@ -1,0 +1,24 @@
+﻿@model JNCB.Models.Teller
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete below Teller/Account?</h3>
+
+<div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">EmpID:<h4>@Html.DisplayFor(model => model.empid)</h4></li>
+    </ul>
+</div>
+
+<div>
+
+    <form asp-action="Deleteteller">
+        <input type="hidden" asp-for="id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="TellerDetails" asp-route-id="@Model.id">Back to List</a>
+    </form>
+</div>

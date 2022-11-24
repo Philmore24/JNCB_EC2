@@ -1,0 +1,24 @@
+﻿@model JNCB.Models.Account
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete below Customer/Account?</h3>
+
+<div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Account:<h4>@Html.DisplayFor(model => model.accountNumber)</h4></li>
+    </ul>
+</div>
+
+<div>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="userID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Details" asp-route-id="@Model.userID">Back to List</a>
+    </form>
+</div>

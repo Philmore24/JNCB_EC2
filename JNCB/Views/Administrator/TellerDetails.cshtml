@@ -1,0 +1,31 @@
+﻿@model Teller
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Teller Information</h1>
+
+<div>
+    <hr />
+    <div class="card mb-3">
+        <div class=" card-header">
+            <span>User ID:</span><h5>@Html.DisplayFor(model => model.id)</h5>
+        </div>
+        <div class="card-body">
+            <span>First Name:</span>  <h5 class="card-title"> @ViewBag.firstName</h5>
+            <span>Last Name:</span>  <h5 class="card-title"> @ViewBag.lastName</h5>
+            <span>Email/Username:</span> <h5 class="card-title"> @ViewBag.Email</h5>
+            <span>EmpID:</span> <h5 class="card-title"> @Html.DisplayFor(model => model.empid)</h5>
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-primary" asp-controller="Administrator" asp-action="DeleteTeller" asp-route-id="@Model.id">Delete Customer</a>
+            <a asp-controller="Administrator" asp-action="EditT" class="btn btn-primary" asp-route-id="@Model.id">Edit Customer</a>
+        </div>
+    </div>
+
+</div>
+<div>
+
+    <a asp-action="ViewAllTeller">Back to List</a>
+</div>

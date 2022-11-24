@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ApplicationUser>
+
+@{
+    ViewBag.Title = "Teller Confirm";
+}
+
+
+@if (Model.Any())
+{
+
+
+
+    foreach (var user in Model)
+    {
+        @if (user.UserName == ViewBag.email)
+        {
+            <h4>You Have Successfully Create A Teller Account. Review Account Details and Confirm with Teller</h4>
+            <p>Now Navigate to Manage Roles from the menu bar to add teller to teller role to enable teller functionalites now or later</p>
+
+            <div class="card mb-3">
+                <div class="card-header">
+                    <span>Teller ID:</span>    @user.Id
+                </div>
+
+
+                <div class="card-body">
+                    <span>Username/Email:</span><h5 class="card-title">@user.UserName</h5>
+                    <span>First Name:</span><h5 class="card-title">@user.firstName</h5>
+                    <span>Last Name:</span><h5 class="card-title">@user.lastName</h5>
+                    <span>Type:</span><h5 class="card-title">@ViewBag.empid</h5>
+                </div>
+            </div>
+
+            <a asp-action="CreateTeller" asp-controller="Administrator"
+               class="btn btn-primary mb-3" style="width:auto">
+                Create New Account
+            </a>
+            <a asp-action="ViewAll">Back to List</a>
+        }
+
+        @if (user.UserName != ViewBag.email)
+        {
+            <h1>Nothing To Confirm</h1>
+        }
+
+    }
+}

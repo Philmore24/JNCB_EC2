@@ -1,0 +1,59 @@
+﻿@model JNCB.Models.Transaction
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Transaction</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="transactionDate" class="control-label"></label>
+                <input asp-for="transactionDate" class="form-control" readonly />
+                <span asp-validation-for="transactionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" readonly />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="receivingAccount" class="control-label"></label>
+                <input asp-for="receivingAccount" class="form-control" readonly />
+                <span asp-validation-for="receivingAccount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="remarks" class="control-label"></label>
+                <input asp-for="remarks" class="form-control" readonly/>
+                <span asp-validation-for="remarks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="type" class="control-label"></label>
+                <input asp-for="type" class="form-control" readonly />
+                <span asp-validation-for="type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="senderAccount" class="control-label"></label>
+                <input asp-for="senderAccount" class="form-control" readonly />
+                <span asp-validation-for="senderAccount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

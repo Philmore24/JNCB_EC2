@@ -1,0 +1,74 @@
+﻿@model Account
+
+<h1>Edit Customer Details</h1>
+
+
+<div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+            <a class="nav-link " asp-action="EditP" asp-route-id="@Model.userID">Customer Info</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-action="EditAd" asp-route-id="@Model.userID">Address</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Account</a>
+        </li>
+    </ul>
+</div>
+<div class="card-body">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="EditAc">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="userID" />
+                <div class="form-group">
+                    <label asp-for="accountNumber" class="control-label">Account Number</label>
+                    <input asp-for="accountNumber" class="form-control" disabled />
+                    <span asp-validation-for="accountNumber" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="cardNum" class="control-label">Card Number</label>
+                    <input asp-for="cardNum" class="form-control" disabled />
+                    <span asp-validation-for="cardNum" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="availableAmount" class="control-label">Available Amount</label>
+                    <input asp-for="availableAmount" class="form-control" disabled />
+                    <span asp-validation-for="availableAmount" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="balance" class="control-label">Account Balance</label>
+                    <input asp-for="balance" class="form-control" disabled />
+                    <span asp-validation-for="balance" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="type" class="control-label">Account Type</label>
+                    <select name="type" class="form-control" required>
+                        <option name="type" value="Savings">Savings</option>
+                        <option name="type" value="Credit">Credit</option>
+                    </select>
+                    <span asp-validation-for="type" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="ViewAll">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

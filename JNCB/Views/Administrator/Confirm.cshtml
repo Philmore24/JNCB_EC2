@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ApplicationUser>
+
+@{
+    ViewBag.Title = "Customer Confirm";
+}
+
+
+@if (Model.Any())
+{
+
+
+
+    foreach (var user in Model)
+    {
+        @if (user.UserName == ViewBag.email)
+        {
+            <h4>You Have Successfully Create A Customer Account. Review Account Details and Confirm with Customer</h4>
+            <p>Now Navigate to Manage Roles from the menu bar to add customer to customer role to enable customer functionalites now or later</p>
+
+            <div class="card mb-3">
+                <div class="card-header">
+                    <span>Customer ID:</span>    @user.Id
+                </div>
+
+
+                <div class="card-body">
+                    <span>Username/Email:</span><h5 class="card-title">@user.UserName</h5>
+                    <span>First Name:</span><h5 class="card-title">@user.firstName</h5>
+                    <span>Last Name:</span><h5 class="card-title">@user.lastName</h5>
+                    <span>Address:</span><h5 class="card-title">@ViewBag.address</h5>
+                    <span>Account Number:</span><h5 class="card-title">@ViewBag.accountNumber</h5>
+                    <span>Card Number: </span><h5 class="card-title">@ViewBag.cardNum</h5>
+                    <span>Balance:</span><h5 class="card-title">@ViewBag.balance</h5>
+                    <span>Type:</span><h5 class="card-title">@ViewBag.type</h5>
+                </div>
+            </div>
+
+            <a asp-action="Create" asp-controller="Administrator"
+               class="btn btn-primary mb-3" style="width:auto">
+                Create New Account
+            </a>
+            <a asp-action="ViewAll">Back to List</a>
+        }
+
+        @if (user.UserName != ViewBag.email)
+        {
+            <h1>Nothing To Confirm</h1>
+        }
+
+    }
+}
+
+

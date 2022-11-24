@@ -1,0 +1,76 @@
+﻿@model JNCB.Models.Transaction
+
+@{
+    ViewData["Title"] = "Create Transaction";
+}
+
+<h1>Create Customer Transaction</h1>
+<br />
+<h4>Enter Transaction Details In The Field Provided</h4>
+<br />
+<p>Where customer is doing a deposit/withrawal to their own account, sender and receiving account field should be the same.</p>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="type" class="control-label"></label>
+                <select name="type" class="form-control" required>
+                    <option name="type" value="">--</option>
+                    <option name="type" value="Self Withdrawal">Self Withdrawal</option>
+                    <option name="type" value="Self Deposit">Self Deposit</option>
+                </select>
+                <span asp-validation-for="type" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="receivingAccount" class="control-label"></label>
+                <input asp-for="receivingAccount" class="form-control" />
+                <span asp-validation-for="receivingAccount" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="senderAccount" class="control-label"></label>
+                <input asp-for="senderAccount" class="form-control" />
+                <span asp-validation-for="senderAccount" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="remarks" class="control-label"></label>
+                <input asp-for="remarks" class="form-control" />
+                <span asp-validation-for="remarks" class="text-danger"></span>
+            </div>
+
+
+
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

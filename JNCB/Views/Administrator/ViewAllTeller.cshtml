@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ApplicationUser>
+
+@{
+    ViewData["Title"] = "View Customers";
+}
+
+<h1>All Teller Accounts</h1>
+
+@if (Model.Any())
+{
+
+    <a asp-action="CreateTeller" asp-controller="Administrator"
+       class="btn btn-primary mb-3" style="width:auto">
+        Create New Account
+    </a>
+
+    foreach (var user in Model)
+    {
+        <div class="card mb-3">
+            <div class="card-header">
+                User Id: @user.Id
+            </div>
+            <div class="card-body">
+                <span>Username/Email:</span><h5 class="card-title">@user.UserName</h5>
+                <span>First Name:</span><h5 class="card-title">@user.firstName</h5>
+                <span>Last Name:</span><h5 class="card-title">@user.lastName</h5>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary" asp-controller="Administrator" asp-action="TellerDetails" asp-route-id="@user.Id">View Account</a>
+            </div>
+
+
+
+
+        </div>
+    }
+}
+else
+{
+    <div class="card">
+        <div class="card-header">
+            No Users
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                Use the button below to create a new account
+            </h5>
+            <a class="btn btn-primary" style="width:auto" asp-controller="Administrator" asp-action="CreateTeller">
+                Create New Account
+            </a>
+        </div>
+    </div>
+}
