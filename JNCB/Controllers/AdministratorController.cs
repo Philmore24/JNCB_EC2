@@ -911,6 +911,7 @@ namespace JNCB.Controllers
 
                 if (result.Succeeded)
                 {
+                    await userManager.AddToRoleAsync(user, "Teller");
                     return RedirectToAction("ConfirmTeller", "Administrator");
                 }
 
