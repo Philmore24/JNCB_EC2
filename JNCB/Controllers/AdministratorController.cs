@@ -343,6 +343,33 @@ namespace JNCB.Controllers
 
         }
 
+        public async Task<IActionResult> DeleteRole(string id)
+        {
+            var role = await roleManager.FindByIdAsync(id);
+
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with id = {id} cannot be found";
+                return View("Not Found");
+            }
+            else
+            {
+                var result = await roleManager.DeleteAsync(role);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("ListRoles");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                return View("Roles");
+            }
+        }
+
         //[Authorize(Roles = "Admin")]
         // GET: Bills/Edit/5
         public async Task<IActionResult> EditP(string id, ApplicationUser model)
