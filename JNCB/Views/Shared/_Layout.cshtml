@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<body style="background: rgb(108,121,237); background: radial-gradient(circle, rgba(108,121,237,1) 0%, rgba(0,109,255,0.4480874316939891) 93%);" >
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar-custom navbar-expand-lg navbar text-dark">
 
             <div class="container">
 
@@ -25,7 +25,7 @@
 
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                        <li class="nav-item text-dark">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                        
@@ -33,7 +33,7 @@
 
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                         {
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown text-dark">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                                    data-toggle="dropdown" aria-haspopup="false">Create User</a>
 
@@ -69,7 +69,7 @@
 
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Teller"))
                         {
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown text-dark">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                                    data-toggle="dropdown" aria-haspopup="false">View Users</a>
 
@@ -89,7 +89,7 @@
 
                         @if (signInManager.IsSignedIn(User) && (User.IsInRole("Teller") @*|| User.IsInRole("Admin")*@))
                         {
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown  text-dark">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                                    data-toggle="dropdown" aria-haspopup="false">Transaction</a>
 
@@ -109,7 +109,7 @@
 
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Customer"))
                         {
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown text-dark">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                                    data-toggle="dropdown" aria-haspopup="false">Transaction</a>
 
@@ -127,7 +127,7 @@
 
                         @if (signInManager.IsSignedIn(User))
                         {
-                            <li class="nav-item">
+                            <li class="nav-item text-dark">
                                 <form method="post" asp-action="logout" asp-controller="account">
                                     <button type="submit" class="nav-link btn btn-link py-0" style="width:auto">
                                         LogOut @User.Identity.Name
@@ -137,8 +137,8 @@
                         }
                         else
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                            <li class="nav-item text-dark">
+                                <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
                             </li>
                         }
 
@@ -148,11 +148,11 @@
         </nav>
     </header>
     <div class="container">
-        <div class="p-3 mb-2 bg-secondary text-white"></div>
+        <div class="p-3 mb-2 bg-secondary text-dark"></div>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-        <div class="p-3 mb-2 bg-secondary text-white"></div>
+        <div class="p-3 mb-2 bg-secondary text-dark"></div>
     </div>
     
 

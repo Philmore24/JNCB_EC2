@@ -276,7 +276,7 @@ namespace JNCB.Controllers
             return View(account);
         }
 
-        [Authorize(Roles = "Admin")]
+       [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteTeller(string id)
         {
             if (id == null)
@@ -294,7 +294,7 @@ namespace JNCB.Controllers
             return View(teller);
         }
 
-        [Authorize(Roles = "Admin")]
+       [Authorize(Roles = "Admin")]
         // POST: Accounts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -320,7 +320,7 @@ namespace JNCB.Controllers
 
         }
 
-        [Authorize(Roles = "Admin")]
+       [Authorize(Roles = "Admin")]
         // POST: Accounts/Delete/5
         [HttpPost, ActionName("DeleteTeller")]
         [ValidateAntiForgeryToken]
@@ -371,7 +371,7 @@ namespace JNCB.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+       [Authorize(Roles = "Admin")]
         // GET: Bills/Edit/5
         public async Task<IActionResult> EditP(string id, ApplicationUser model)
         {
@@ -390,7 +390,7 @@ namespace JNCB.Controllers
             return View(user);
         }
 
-        [Authorize(Roles = "Admin")]
+       [Authorize(Roles = "Admin")]
         // POST: Bills/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -427,7 +427,7 @@ namespace JNCB.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+       [Authorize(Roles = "Admin")]
 
         // GET: Bills/Edit/5
         public async Task<IActionResult> EditT(string id, ApplicationUser model)
@@ -447,7 +447,7 @@ namespace JNCB.Controllers
             return View(user);
         }
 
-        [Authorize(Roles = "Admin")]
+      [Authorize(Roles = "Admin")]
         // POST: Bills/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -484,7 +484,7 @@ namespace JNCB.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+       [Authorize(Roles = "Admin")]
 
         // GET: Bills/Edit/5
         public async Task<IActionResult> EditAd(string id)
@@ -505,7 +505,7 @@ namespace JNCB.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
+      [Authorize(Roles = "Admin")]
         // POST: Bills/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -546,7 +546,7 @@ namespace JNCB.Controllers
             return View(customer);
         }
 
-        [Authorize(Roles = "Admin")]
+       [Authorize(Roles = "Admin")]
 
         // GET: Bills/Edit/5
         public async Task<IActionResult> EditID(string id)
@@ -566,7 +566,7 @@ namespace JNCB.Controllers
             return View(teller);
         }
 
-        [Authorize(Roles = "Admin")]
+      [Authorize(Roles = "Admin")]
 
         // POST: Bills/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -608,7 +608,7 @@ namespace JNCB.Controllers
             return View(teller);
         }
 
-        [Authorize(Roles = "Admin")]
+       [Authorize(Roles = "Admin")]
 
         // GET: Bills/Edit/5
         public async Task<IActionResult> EditAc(string id)
@@ -629,7 +629,7 @@ namespace JNCB.Controllers
             return View(account);
         }
 
-        [Authorize(Roles = "Admin")]
+      [Authorize(Roles = "Admin")]
         // POST: Bills/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -698,7 +698,7 @@ namespace JNCB.Controllers
 
 
 
-        [Authorize(Roles = "Admin")]
+       [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult CreateRole()
         {
@@ -732,7 +732,7 @@ namespace JNCB.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
+      [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult ListRoles()
         {
@@ -740,7 +740,7 @@ namespace JNCB.Controllers
             return View(roles);
         }
 
-        [Authorize(Roles = "Admin")]
+       [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> EditRole(string id)
         {
@@ -768,7 +768,7 @@ namespace JNCB.Controllers
             return View(model);
         }
 
-        [Authorize(Roles = "Admin")]
+      [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> EditRole(EditRoles model)
         {
@@ -800,7 +800,7 @@ namespace JNCB.Controllers
 
         }
 
-        [Authorize(Roles = "Admin")]
+      [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> EditUserInRoles(string roleId)
         {
@@ -839,7 +839,7 @@ namespace JNCB.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
+       [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> EditUserInRoles(List<UserRoles> model, string roleId)
         {
@@ -889,13 +889,13 @@ namespace JNCB.Controllers
 
         }
 
-        [Authorize(Roles = "Admin")]
+       [Authorize(Roles = "Admin")]
         public IActionResult CreateTeller()
         {
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
+       [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> CreateTeller(TellerRegister model)
         {
