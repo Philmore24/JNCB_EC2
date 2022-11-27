@@ -8,65 +8,77 @@
 <h1>Customer Registration</h1>
 <br />
 
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-row">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" required />
+        <span asp-validation-for="Email" class="text-danger"></span>
+        <br />
+        <br />
+        <br />
+        <div class="form-group col-md-6">
+            <label asp-for="Password" class="control-label"></label>
+            <input asp-for="Password" class="form-control" required />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" required />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" required />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ConfirmPassword" class="control-label"></label>
-                <input asp-for="ConfirmPassword" class="form-control" required />
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="firstName" class="control-label"></label>
-                <input asp-for="firstName" class="form-control" required />
-                <span asp-validation-for="firstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="lastName" class="control-label"></label>
-                <input asp-for="lastName" class="form-control" required />
-                <span asp-validation-for="lastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="streetAddress" class="control-label"></label>
-                <input asp-for="streetAddress" class="form-control" required />
-                <span asp-validation-for="streetAddress" class="text-danger"></span>
-            </div>
-
-
-
-            <div class="form-group">
-                <label asp-for="balance" class="control-label"></label>
-                <input asp-for="balance" class="form-control" required />
-                <span asp-validation-for="balance" class="text-danger"></span>
-            </div>
-
-
-
-            <div class="form-group">
-                <label asp-for="type" class="control-label"></label>
-                <select name="type" class="form-control" required>
-                    <option name="type" value="">--</option>
-                    <option name="type" value="Savings">Savings</option>
-                    <option name="type" value="Credit">Credit</option>
-                </select>
-                <span asp-validation-for="type" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <input type="submit" value="Register" class="btn btn-primary" />
-            </div>
-        </form>
+        <div class="form-group col-md-6">
+            <label asp-for="ConfirmPassword" class="control-label"></label>
+            <input asp-for="ConfirmPassword" class="form-control" required />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
     </div>
+    <br />
+    <div class="form-row">
+
+        <div class="form-group col-md-6">
+            <label asp-for="firstName" class="control-label"></label>
+            <input asp-for="firstName" class="form-control" required />
+            <span asp-validation-for="firstName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label asp-for="lastName" class="control-label"></label>
+            <input asp-for="lastName" class="form-control" required />
+            <span asp-validation-for="lastName" class="text-danger"></span>
+        </div>
+    </div>
+    <br />
+
+    <div class="form-group">
+        <label asp-for="streetAddress" class="control-label"></label>
+        <input asp-for="streetAddress" class="form-control" required />
+        <span asp-validation-for="streetAddress" class="text-danger"></span>
+    </div>
+    <br />
+
+
+
+
+    <div class="form-row">
+
+        <div class="form-group col-md-6">
+            <label asp-for="balance" class="control-label"></label>
+            <input asp-for="balance" class="form-control" required />
+            <span asp-validation-for="balance" class="text-danger"></span>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label asp-for="type" class="control-label"></label>
+            <select name="type" class="form-control" required>
+                <option name="type" value="">--</option>
+                <option name="type" value="Savings">Savings</option>
+                <option name="type" value="Credit">Credit</option>
+            </select>
+            <span asp-validation-for="type" class="text-danger"></span>
+        </div>
+    </div>
+
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Register" class="btn btn-primary" />
+    </div>
+</form>
+
 </div> 
