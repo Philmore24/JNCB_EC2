@@ -6,6 +6,7 @@
 
 <h1>All Teller Accounts</h1>
 
+
 @if (Model.Any())
 {
 
@@ -14,26 +15,58 @@
         Create New Account
     </a>
 
-    foreach (var user in Model)
-    {
-        <div class="card mb-3">
-            <div class="card-header">
-                User Id: @user.Id
-            </div>
-            <div class="card-body">
-                <span>Username/Email:</span><h5 class="card-title">@user.UserName</h5>
-                <span>First Name:</span><h5 class="card-title">@user.firstName</h5>
-                <span>Last Name:</span><h5 class="card-title">@user.lastName</h5>
-            </div>
-            <div class="card-footer">
-                <a class="btn btn-primary" asp-controller="Administrator" asp-action="TellerDetails" asp-route-id="@user.Id">View Account</a>
-            </div>
 
 
+    <table class="table table-bordered table-hover table-light ">
+        <thead class="bg-primary">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(user => user.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(user => user.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(user => user.firstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(user => user.lastName)
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead="bg-primary">
+        <tbody>
 
 
-        </div>
-    }
+            @foreach (var user in Model)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => user.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => user.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => user.firstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => user.lastName)
+                    </td>
+                    <td>
+                        <a asp-controller="Administrator" asp-action="TellerDetails" asp-route-id="@user.Id">View Account</a>
+
+                    </td>
+                </tr>
+            }
+
+            }
+
+        </tbody>
+
+
+    </table>
 }
 else
 {
