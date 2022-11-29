@@ -1,10 +1,17 @@
-﻿@{
-    ViewBag.Title = "Not Found";
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "NotFound";
 }
+<link href="~/css/error.css" rel="stylesheet" />
 
-<h1>@ViewBag.ErrorMessage</h1>
-<h1>You were signed out because session expired</h1>
-
-<a asp-action="Login" asp-controller="Account">
-    Login to continue
-</a>
+<div id='igniel404'>
+    <div id='error-text'>
+        <span>404</span>
+        <p>Page Cannot Be Found</p>
+        <a class='back' title='Igniel' asp-area="" asp-controller="Home" asp-action="Index">Return to Home Page</a>
+        <div id='copyright'>
+            <a asp-area="" asp-controller="Home" asp-action="Index" title='Igniel'>National Commercial Bank</a> &#169; 2022
+            <script>document.write(getFullYear())</script>
+        </div>
+    </div>
+</div>
